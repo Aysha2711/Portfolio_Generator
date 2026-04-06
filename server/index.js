@@ -1,11 +1,22 @@
-// mongodb+srv://portfolio:<db_password>@cluster0.h64p2gp.mongodb.net/?appName=Cluster0
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const connectDB = require('./db.js');
+const portfolioRoutes = require('./routes/portfolioRoutes');
 
-const express = require ('express')
-const connectDB = require('./db.js')
-const UserPortfolio = require("./models/UserPortfolio");
+const app = express();
 
-const app = express()
+// Middleware
+app.use(cors());
+app.use(express.json());
 
+// Connect to Database
 connectDB();
 
-app.listen(3000, () => {console.log("server is running ");})
+// Routes
+app.use('/api/portfolio', portfolioRoutes);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
