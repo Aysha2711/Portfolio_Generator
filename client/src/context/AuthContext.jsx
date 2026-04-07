@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
     return savedUser ? JSON.parse(savedUser) : null;
   });
 
-  const apiUrl = 'http://localhost:3000/api/auth'; //  this matches backend URL
+  const apiUrl = 'http://localhost:3000/api/auth'; //  matches backend URL
 
   const login = async (email, password) => {
     const res = await axios.post(`${apiUrl}/login`, { email, password });
