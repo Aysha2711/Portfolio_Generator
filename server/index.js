@@ -13,7 +13,10 @@ app.use(express.json());
 // Connect to Database
 connectDB();
 
+const authRoutes = require('./routes/authRoutes');
+
 // Routes
+app.use('/api/auth', authRoutes);
 app.use('/api/portfolio', portfolioRoutes);
 
 const PORT = process.env.PORT || 3000;

@@ -1,17 +1,21 @@
 const express = require('express');
 const {
   createPortfolio,
+  getUserPortfolios,
   getPortfolioByUsername,
   updatePortfolio,
   deletePortfolio
 } = require('../controllers/portfolioController');
 
+const { protect } = require('../middleware/authMiddleware');
+
 const router = express.Router();
 
-router.post('/', createPortfolio);
-router.get('/:username', getPortfolioByUsername);
-router.put('/:username', updatePortfolio);
-router.delete('/:username', deletePortfolio);
+router.post('/', protect, createPortfolio);
+router.get('/user', protect, getUserPortfolios);
+router.get('/:username', getPortfolioByUsername); // Public
+router.put('/:username', protect, updatePortfolio);
+router.delete('/:username', protect, deletePortfolio);
 
 module.exports = router;
 

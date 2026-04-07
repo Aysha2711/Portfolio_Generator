@@ -7,6 +7,12 @@ const userPortfolioSchema = new mongoose.Schema({
     unique: true
   },
 
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'User'
+  },
+
   fullName: {
     type: String,
     required: true
