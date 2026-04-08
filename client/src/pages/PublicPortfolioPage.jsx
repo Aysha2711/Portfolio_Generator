@@ -67,7 +67,7 @@ const PublicPortfolioPage = () => {
             {portfolio.fullName}
           </h1>
           {portfolio.title && (
-            <h2 className="text-xl sm:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 font-medium mb-6">
+            <h2 className="text-xl sm:text-2xl text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-purple-400 font-medium mb-6">
               {portfolio.title}
             </h2>
           )}
@@ -170,7 +170,7 @@ const PublicPortfolioPage = () => {
               <span className="w-8 h-px bg-pink-500 rounded-full"></span>
               Experience
             </h3>
-            <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-700 before:to-transparent">
+            <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-linear-to-b before:from-transparent before:via-slate-700 before:to-transparent">
               {portfolio.experience.map((exp, index) => (
                 <div key={index} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                   <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-slate-900 bg-slate-800 text-slate-500 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow">
