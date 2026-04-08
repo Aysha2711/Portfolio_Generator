@@ -1,24 +1,27 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { Plus, Trash2, ArrowRight, UserCircle } from 'lucide-react';
 
 const CreatePortfolioPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const [formData, setFormData] = useState({
-    username: '',
-    fullName: '',
-    title: '',
-    bio: '',
-    profileImage: '',
-    contact: { email: '', linkedin: '', github: '', website: '' },
-    skills: [''],
-    projects: [{ name: '', description: '', techStack: [''], githubLink: '', liveDemo: '' }],
-    experience: [{ company: '', role: '', duration: '', description: '' }]
-  });
+  const [formData, setFormData] = useState(
+    location.state?.portfolio || {
+      username: '',
+      fullName: '',
+      title: '',
+      bio: '',
+      profileImage: '',
+      contact: { email: '', linkedin: '', github: '', website: '' },
+      skills: [''],
+      projects: [{ name: '', description: '', techStack: [''], githubLink: '', liveDemo: '' }],
+      experience: [{ company: '', role: '', duration: '', description: '' }]
+    }
+  );
 
   const handleBasicChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

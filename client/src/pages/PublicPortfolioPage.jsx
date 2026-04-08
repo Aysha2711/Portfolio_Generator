@@ -48,7 +48,6 @@ const PublicPortfolioPage = () => {
       <div className="fixed top-18 right-6 z-50">
         <Link to={`/edit/${portfolio.username}`} className="flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 text-white transition-all shadow-lg">
           <Edit3 className="w-4 h-4" />
-          <span className="text-sm font-medium">Edit Portfolio</span>
         </Link>
       </div>
 

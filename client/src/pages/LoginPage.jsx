@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import logo from "../assets/logo.png";
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -27,6 +28,13 @@ const LoginPage = () => {
       <div className="absolute bottom-[10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-purple-600/20 blur-[120px] pointer-events-none"></div>
 
       <div className="max-w-md w-full space-y-8 p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md z-10">
+        <div className="flex justify-center">
+          <Link to="/" className="flex items-center gap-2 group">
+              <img src={logo} alt="Logo" className="w-7 h-7" />
+
+              <span className="font-bold text-white text-xl tracking-tight">PortGen</span>
+          </Link>
+        </div>
         <div>
           <h2 className="mt-2 text-center text-3xl font-extrabold text-white">
             Welcome Back

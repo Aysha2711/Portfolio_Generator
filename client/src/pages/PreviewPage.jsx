@@ -51,7 +51,7 @@ const PreviewPage = () => {
           This is how your portfolio will look.
         </div>
         <div className="flex items-center gap-3">
-          <button onClick={() => navigate(-1)} className="px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-sm font-medium rounded-lg transition-colors flex items-center gap-2">
+          <button onClick={() => navigate('/create', { state: { portfolio: formData } })} className="px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-sm font-medium rounded-lg transition-colors flex items-center gap-2">
             <Edit3 className="w-4 h-4" /> Go Back & Edit
           </button>
           <button onClick={handlePublish} disabled={loading} className={`px-4 py-2 bg-white text-indigo-600 hover:bg-slate-100 text-sm font-bold rounded-lg transition-colors flex items-center gap-2 shadow-lg ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}>
