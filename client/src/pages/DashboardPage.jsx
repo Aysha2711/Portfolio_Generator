@@ -88,7 +88,7 @@ const DashboardPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {portfolios.map((portfolio) => (
               <div key={portfolio._id} className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors backdrop-blur-sm flex flex-col">
-                <div className="flex-grow">
+                <div className="grow">
                   <h3 className="text-xl font-bold text-white mb-1 truncate">{portfolio.fullName}</h3>
                   <p className="text-indigo-400 text-sm mb-4 truncate">/{portfolio.username}</p>
                   {portfolio.title && <p className="text-slate-300 text-sm mb-4 line-clamp-2">{portfolio.title}</p>}
