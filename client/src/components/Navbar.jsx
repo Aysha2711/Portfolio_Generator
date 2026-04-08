@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { Layout } from 'lucide-react';
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -18,9 +19,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-2 group">
-              <div className="w-8 h-8 rounded-lg bg-indigo-500/20 flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500/30 transition-colors">
-                <Layout className="w-5 h-5" />
-              </div>
+              <img src={logo} alt="Logo" className="w-7 h-7" />
+
               <span className="font-bold text-white text-xl tracking-tight">PortGen</span>
             </Link>
           </div>
