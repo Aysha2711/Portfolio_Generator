@@ -16,7 +16,7 @@ const HomePage = () => {
 
       <div className="z-10 max-w-4xl max-auto space-y-8">
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-4">
-          Own Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Developer Identity</span>
+          Own Your <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-purple-400">Developer Identity</span>
         </h1>
         
         <p className="text-xl md:text-2xl text-slate-300 max-w-2xl mx-auto leading-relaxed">

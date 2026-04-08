@@ -74,7 +74,7 @@ const PreviewPage = () => {
           {portfolio.profileImage ? (
             <img src={portfolio.profileImage} alt={portfolio.fullName} className="w-32 h-32 rounded-full object-cover border-4 border-slate-800 shadow-xl mx-auto mb-6" />
           ) : (
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex justify-center items-center text-4xl font-bold text-white shadow-xl mx-auto mb-6">
+            <div className="w-32 h-32 rounded-full bg-linear-to-br from-indigo-500 to-purple-600 flex justify-center items-center text-4xl font-bold text-white shadow-xl mx-auto mb-6">
               {portfolio.fullName?.charAt(0) || '?'}
             </div>
           )}
