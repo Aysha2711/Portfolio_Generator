@@ -48,12 +48,15 @@ A full-stack MERN application that allows developers to create, manage, and shar
 ## ⚙️ Environment Variables
 
 Create a `.env` file inside the `/server` folder:
+Create a `.env` file inside the `/client` folder:
 
---- env
+--- env server
 PORT=5000
 MONGODB_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_key
-CLIENT_URL=http://localhost:5173
+
+--- env client
+VITE_API_URL=your_api_url
 
 
 ## Prerequisites
