@@ -1,6 +1,8 @@
 import React, { createContext, useState } from 'react';
 import axios from 'axios';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -9,7 +11,7 @@ export const AuthProvider = ({ children }) => {
     return savedUser ? JSON.parse(savedUser) : null;
   });
 
-  const apiUrl = 'http://localhost:3000/api/auth'; //  this matches backend URL
+  const apiUrl = `${API_URL}/api/auth`;
 
   const login = async (email, password) => {
     const res = await axios.post(`${apiUrl}/login`, { email, password });
