@@ -4,6 +4,8 @@ import axios from 'axios';
 import { Mail, Link as LinkIcon, Code, Globe, ExternalLink, Briefcase, MapPin, UploadCloud, Edit3 } from 'lucide-react';
 import { AuthContext } from '../context/AuthContext';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const PreviewPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -28,7 +30,7 @@ const PreviewPage = () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await axios.post('http://localhost:3000/api/portfolio', portfolio, {
+      const res = await axios.post(`${API_URL}/api/portfolio`, portfolio, {
         headers: {
           Authorization: `Bearer ${user?.token}`
         }

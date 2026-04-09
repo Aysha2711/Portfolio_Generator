@@ -7,8 +7,30 @@ const portfolioRoutes = require('./routes/portfolioRoutes');
 const app = express();
 
 // Middleware
-app.use(cors());
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://portfolio-generator-fawn.vercel.app"
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true); // allow tools like Postman
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("CORS not allowed for this origin: " + origin));
+    }
+  },
+  credentials: true
+}));
+
+
 app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("Backend is running ✅");
+});
 
 // Connect to Database
 connectDB();

@@ -4,6 +4,8 @@ import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
 import { Plus, Edit, Trash2, ExternalLink } from 'lucide-react';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const DashboardPage = () => {
   const [portfolios, setPortfolios] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,7 +20,7 @@ const DashboardPage = () => {
 
     const fetchPortfolios = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/api/portfolio/user', {
+        const res = await axios.get(`${API_URL}/api/portfolio/user`, {
           headers: {
             Authorization: `Bearer ${user.token}`
           }
@@ -37,7 +39,7 @@ const DashboardPage = () => {
   const handleDelete = async (username) => {
     if (window.confirm("Are you sure you want to delete this portfolio? This cannot be undone.")) {
       try {
-        await axios.delete(`http://localhost:3000/api/portfolio/${username}`, {
+        await axios.delete(`${API_URL}/api/portfolio/${username}`, {
           headers: {
             Authorization: `Bearer ${user.token}`
           }

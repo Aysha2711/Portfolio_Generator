@@ -4,6 +4,8 @@ import axios from 'axios';
 import { Plus, Trash2, ArrowRight, Save, UserCircle } from 'lucide-react';
 import { AuthContext } from '../context/AuthContext';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const EditPortfolioPage = () => {
   const { username } = useParams();
   const navigate = useNavigate();
@@ -17,7 +19,7 @@ const EditPortfolioPage = () => {
   useEffect(() => {
     const fetchPortfolio = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/api/portfolio/${username}`);
+        const res = await axios.get(`${API_URL}/api/portfolio/${username}`);
         const data = res.data;
         // Ensure arrays are not empty for the form
         if (!data.skills || data.skills.length === 0) data.skills = [''];
@@ -77,7 +79,7 @@ const EditPortfolioPage = () => {
         skills: formData.skills.filter(s => s.trim() !== ''),
       };
       
-      const res = await axios.put(`http://localhost:3000/api/portfolio/${username}`, cleanedData, {
+      const res = await axios.put(`${API_URL}/api/portfolio/${username}`, cleanedData, {
         headers: {
           Authorization: `Bearer ${user?.token}`
         }

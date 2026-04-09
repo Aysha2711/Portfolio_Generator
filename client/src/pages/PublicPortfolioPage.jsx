@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { Mail, Link as LinkIcon, Code, Globe, ExternalLink, Briefcase, MapPin, Edit3 } from 'lucide-react';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const PublicPortfolioPage = () => {
   const { username } = useParams();
   const [portfolio, setPortfolio] = useState(null);
@@ -12,7 +14,7 @@ const PublicPortfolioPage = () => {
   useEffect(() => {
     const fetchPortfolio = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/api/portfolio/${username}`);
+        const res = await axios.get(`${API_URL}/api/portfolio/${username}`);
         setPortfolio(res.data);
       } catch (err) {
         setError(err.response?.data?.message || 'Portfolio not found');
